@@ -22,6 +22,11 @@ Update Notice: Simply restart the container if a newer version of the game is av
 | USERNAME | Leave blank for anonymous login | blank |
 | PASSWRD | Leave blank for anonymous login | blank |
 
+## Build image
+```bash
+docker build -t corekeeperserver:v0.0.1 .
+```
+
 ## Run example
 ```
 docker run --name CoreKeeper -d \
@@ -30,9 +35,10 @@ docker run --name CoreKeeper -d \
 	--env 'WORLD_INDEX=0' \
 	--env 'UID=99' \
 	--env 'GID=100' \
-	--volume /path/to/steamcmd:/serverdata/steamcmd \
-	--volume /path/to/corekeeper:/serverdata/serverfiles \
-	ich777/steamcmd:corekeeper
+	--volume ./steamcmd:/serverdata/steamcmd \
+	--volume ./corekeeper:/serverdata/serverfiles \
+	-p 27015:27015 \
+	corekeeperserver:v0.0.1
 ```
 
 This Docker was mainly edited for better use with Unraid, if you don't use Unraid you should definitely try it!

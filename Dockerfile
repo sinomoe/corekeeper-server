@@ -14,7 +14,8 @@ ENV WORLD_INDEX=0
 ENV WORLD_NAME="Core Keeper Docker"
 ENV GAME_ID="template"
 ENV GAME_NAME=""
-ENV GAME_PARAMS=""
+#Enable direct connect by default
+ENV GAME_PARAMS="-port 27015 -ip 0.0.0.0"
 ENV GAME_PORT=27015
 ENV VALIDATE=""
 ENV UMASK=000
